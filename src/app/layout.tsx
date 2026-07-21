@@ -16,6 +16,20 @@ export const metadata: Metadata = {
   title: "DoveSphere Technology Limited",
   description:
     "Bridging the gap between complex technology and business success. IT solutions, consultancy, and training based in Lagos, Nigeria.",
+  metadataBase: new URL("https://www.dovesphere.com"),
+  openGraph: {
+    title: "DoveSphere Technology Limited",
+    description: "Bridging the gap between complex technology and business success.",
+    url: "https://www.dovesphere.com",
+    siteName: "DoveSphere Technology Limited",
+    locale: "en_NG",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "DoveSphere Technology Limited",
+    description: "Bridging the gap between complex technology and business success.",
+  },
 };
 
 export default function RootLayout({

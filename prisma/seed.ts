@@ -1,5 +1,7 @@
-import { prisma } from "../lib/prisma";
+import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
+
+const prisma = new PrismaClient();
 
 async function main() {
   const email = process.env.ADMIN_EMAIL || "admin@dovesphere.com";

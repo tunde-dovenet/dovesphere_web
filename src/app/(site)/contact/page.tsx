@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { COMPANY } from "@/lib/constants";
 
@@ -86,12 +87,27 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* Map Placeholder */}
-            <div className="flex items-center justify-center">
-              <div className="flex h-full min-h-[300px] w-full items-center justify-center rounded-xl border-2 border-dashed border-obsidian/20 bg-chalk p-8 text-center">
-                <div>
-                  <p className="text-lg font-semibold text-gunmetal">Map Placeholder</p>
-                  <p className="mt-2 text-sm text-gunmetal/70">Lagos, Nigeria</p>
+            {/* Map / Image */}
+            <div className="relative flex items-center justify-center">
+              <div className="relative h-full min-h-[350px] w-full overflow-hidden rounded-xl">
+                <Image
+                  src="/images/speed.jpg"
+                  alt="DoveSphere — Lagos, Nigeria"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-obsidian/50 p-8 text-center">
+                  <div className="relative h-16 w-16">
+                    <Image
+                      src="/images/dovesphere_logo_only.png"
+                      alt=""
+                      fill
+                      className="object-contain"
+                      aria-hidden="true"
+                    />
+                  </div>
+                  <p className="mt-4 text-lg font-semibold text-chalk">Lagos, Nigeria</p>
+                  <p className="mt-1 text-sm text-chalk/70">Headquarters</p>
                 </div>
               </div>
             </div>

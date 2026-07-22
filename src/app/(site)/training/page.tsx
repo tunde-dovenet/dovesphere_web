@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -52,8 +53,16 @@ export default function TrainingPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-obsidian text-chalk">
-        <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+      <section className="relative overflow-hidden bg-obsidian text-chalk">
+        <Image
+          src="/images/speed.jpg"
+          alt=""
+          fill
+          className="object-cover opacity-15"
+          priority
+          aria-hidden="true"
+        />
+        <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
             Training & <span className="text-azure">Capacity Building</span>
           </h1>
@@ -75,6 +84,16 @@ export default function TrainingPage() {
               <p className="mt-4 text-lg text-gunmetal">{program.description}</p>
             </div>
 
+            {idx === 0 && (
+              <div className="relative mt-12 aspect-[21/9] overflow-hidden rounded-xl">
+                <Image
+                  src="/images/african-american-employee-working-goods-inventory.jpg"
+                  alt="Professional engaged in hands-on training"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            )}
             <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
               {program.topics.map((topic) => (
                 <div

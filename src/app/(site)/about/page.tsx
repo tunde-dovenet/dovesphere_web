@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { COMPANY } from "@/lib/constants";
 
@@ -26,14 +27,24 @@ export default function AboutPage() {
       {/* Who We Are */}
       <section className="bg-white py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-3xl">
-            <h2 className="text-3xl font-bold text-obsidian">Who We Are</h2>
-            <p className="mt-6 text-lg text-gunmetal leading-relaxed">
-              {COMPANY.name} is a premier Information Technology solutions provider. We specialize in delivering end-to-end IT products, expert consultancy, and comprehensive training services designed to empower organizations and individuals alike.
-            </p>
-            <p className="mt-4 text-lg text-gunmetal leading-relaxed">
-              Our operations are built on a foundation of reliability, measurable growth, and a client-centric approach. We don't just fix problems — we prevent them and plan for the future.
-            </p>
+          <div className="grid items-center gap-12 lg:grid-cols-2">
+            <div>
+              <h2 className="text-3xl font-bold text-obsidian">Who We Are</h2>
+              <p className="mt-6 text-lg text-gunmetal leading-relaxed">
+                {COMPANY.name} is a premier Information Technology solutions provider. We specialize in delivering end-to-end IT products, expert consultancy, and comprehensive training services designed to empower organizations and individuals alike.
+              </p>
+              <p className="mt-4 text-lg text-gunmetal leading-relaxed">
+                Our operations are built on a foundation of reliability, measurable growth, and a client-centric approach. We don't just fix problems — we prevent them and plan for the future.
+              </p>
+            </div>
+            <div className="relative aspect-[4/3] overflow-hidden rounded-xl">
+              <Image
+                src="/images/african-american-employee-working-goods-inventory.jpg"
+                alt="DoveSphere team member working on-site"
+                fill
+                className="object-cover"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -42,7 +53,15 @@ export default function AboutPage() {
       <section className="bg-chalk py-16 sm:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl">
-            <h2 className="text-3xl font-bold text-obsidian">The Story Behind Our Name</h2>
+            <div className="relative mx-auto mb-8 h-16 w-16">
+              <Image
+                src="/images/dovesphere_logo_only.png"
+                alt="DoveSphere logo"
+                fill
+                className="object-contain"
+              />
+            </div>
+            <h2 className="text-center text-3xl font-bold text-obsidian">The Story Behind Our Name</h2>
             <div className="mt-8 grid gap-8 sm:grid-cols-2">
               <div className="rounded-xl bg-white p-8 shadow-sm">
                 <h3 className="text-xl font-semibold text-obsidian">🕊️ Dove</h3>

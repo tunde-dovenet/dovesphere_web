@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { COMPANY } from "@/lib/constants";
 
@@ -55,8 +56,16 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-obsidian text-chalk">
-        <div className="mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
+      <section className="relative overflow-hidden bg-obsidian text-chalk">
+        <Image
+          src="/images/speed.jpg"
+          alt=""
+          fill
+          className="object-cover opacity-15"
+          priority
+          aria-hidden="true"
+        />
+        <div className="relative mx-auto max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
           <div className="max-w-3xl">
             <h1 className="text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
               Bridging the gap between{" "}

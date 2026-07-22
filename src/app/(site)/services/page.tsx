@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -90,6 +91,16 @@ export default function ServicesPage() {
               <p className="mt-4 text-lg text-gunmetal">{pillar.description}</p>
             </div>
 
+            {idx === 0 && (
+              <div className="relative mt-12 aspect-[21/9] overflow-hidden rounded-xl">
+                <Image
+                  src="/images/engineer-server-room-using-tablet-implement-data-backup-solutions.jpg"
+                  alt="IT infrastructure expert managing server systems"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            )}
             <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
               {pillar.services.map((s) => (
                 <div

@@ -1,6 +1,8 @@
+import { after } from "next/server";
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { buildSubmissionSchema } from "@/lib/zod-schemas";
+import { notifyFormSubmission } from "@/lib/notify";
 
 const rateLimitMap = new Map<string, number[]>();
 const RATE_LIMIT_WINDOW = 60000;
@@ -85,6 +87,19 @@ export async function POST(
         ipAddress: ip,
       },
     });
+
+    // Fire a push notification via ntfy.sh after the response is sent so it
+    // never blocks the user. Any failure is logged and swallowed — a
+    // notification hiccup must not affect the submission itself.
+    after(() =>
+      notifyFormSubmission({
+        form,
+        data: parsed.data as Record<string, unknown>,
+        ipAddress: ip,
+      }).catch((error) => {
+        console.error("ntfy notification failed:", error);
+      })
+    );
 
     return NextResponse.json({ success: true });
   } catch (error) {
